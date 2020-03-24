@@ -1,0 +1,233 @@
+/**** MAIN STYLES ****/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+
+/**** VARIABLES ****/
+
+:root {
+  --color-primary: #1FD2DE;
+  --color-accent: #628FB0;
+  --color-win: #78CF82;
+  --color-lose: #D94545;
+  --color-start: #1D273D;
+  --color-shadow: #706D6E;
+  --color-light: #F9F9F8;
+  --color-light-dark: #E0E0DF;
+  --color-keys: #37474F;
+  --font-size-large: 60px;
+  --font-size-medium: 24px;
+  --transition: all .2s ease-in-out;
+}
+
+/**** KEYFRAMES ****/
+
+@keyframes matched {
+  0% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1.3) rotate(20deg);
+  }
+  40% {
+    transform: scale(1.3) rotate(-20deg);
+  }
+  60% {
+    transform: rotate(20deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes win-pulse {
+  0% {
+    transform: scale(0.5);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* MAIN */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  justify-content: space-evenly;
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: #1D273D;
+}
+
+li, ol, ul {
+  padding: 0;
+  display: inline-block;
+}
+
+h2 {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-size-large);
+  margin: 0;
+}
+
+button {
+  margin: 6px;
+  border: 1px solid transparent;
+  width: 50px;
+  height: 50px;
+  color: var(--color-keys);
+  font-size: var(--font-size-medium);
+  background-color: var(--color-light);
+  border-radius: 5px;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  max-height: 900px;
+  text-align: center;
+}
+
+.section {
+  width: 100%;
+  padding: 10px;
+}
+
+/**** TITLE ****/
+
+.header {
+  color: var(--color-primary);
+}
+
+/**** PHRASE ****/
+
+.letter {
+  font-size: var(--font-size-medium);
+  font-family: 'Calistoga', cursive;
+  font-weight: 100;
+  text-transform: uppercase;
+  height: 65px;
+  width: 65px;
+  padding: 20px 1px 0 1px;
+  margin-right: 8px;
+  margin-bottom: 15px;
+  color: transparent;
+  background: var(--color-light);
+  border-radius: 10px;
+}
+
+.space {
+  width: 20px;
+}
+
+.show {
+  color: var(--color-start);
+  background-color: var(--color-primary);
+  box-shadow: 3px 3px var(--color-shadow);
+  animation-duration: .5s;
+  animation-name: matched;
+}
+
+.win-pulse {
+  animation-duration: 1s;
+  animation-name: win-pulse;
+}
+
+/**** KEYBOARD ****/
+
+.keyrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chosen {
+  background: var(--color-accent);
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  color: var(--color-light);
+  box-shadow: 3px 3px var(--color-shadow);
+}
+
+.btn__reset {
+  padding: 8px;
+  margin: 50px auto;
+  background: var(--color-light);
+  border-radius: 5px;
+  font-size: var(--font-size-medium);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 4px 4px var(--color-shadow);
+}
+
+.btn__reset:active {
+  background: var(--color-light-dark);
+  box-shadow: 2px 2px var(--color-shadow);
+}
+
+/**** OVERLAY ****/
+
+#overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: var(--color-light);
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+
+.title {
+  color: var(--color-light);
+}
+
+.start {
+  background-color: var(--color-start);
+}
+
+.start a {
+  color: var(--color-primary);
+}
+
+.win {
+  background-color: var(--color-win);
+}
+
+.win a {
+  color: var(--color-win);
+}
+
+.lose {
+  background-color: var(--color-lose);
+}
+
+.lose a {
+  color: var(--color-lose);
+}
