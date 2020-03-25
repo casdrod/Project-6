@@ -4,6 +4,7 @@ const startGame = document.querySelector('a');
 var overlay = document.querySelector('#overlay');
 const resetButton = document.createElement('a');
 const hearts = document.querySelectorAll('.tries');
+let buttons = document.getElementsByTagName('button');
 
 let missed = 0;
 
@@ -11,10 +12,16 @@ let missed = 0;
 //Phrases Array
 const phrases = [
     'believe in yourself',
-    'do not give up',
+    'never give up',
     'pay it forward',
-    'work hard play hard',
-    'say yes to adventure'
+    'work hard stay humble',
+    'say yes to adventure',
+    'hakuna matata',
+    'this too shall pass',
+    'do the impossible',
+    'enjoy the little things',
+    'show up and dont give up',
+    // 'be fearlessly authentic'
 ];
 
 
@@ -69,10 +76,14 @@ const checkWin = () => {
     const title = document.querySelector('.title');
 
     if (letterItems.length === showItems.length) {
-        showItems.className += " win-pulse";
-        setTimeout(win, 3000);
+        showItems.forEach(showItem => showItem.className += " win-pulse");
+        setTimeout(win, 1500);
     } else if (missed > 4) {
-        setTimeout(lose, 3000);
+        hearts.forEach(heart => heart.className += " win-pulse");
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+        setTimeout(lose, 1500);
     }
 
     /* Pauses rest of function so player can see the phrase they guessed correctly */
@@ -108,11 +119,10 @@ function clearPhrase() {
 
 //Clears out keyboard
 function clearKeyboard() {
-    const buttons = document.getElementsByTagName('button');
     for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
         if (buttons[i].className === 'chosen') {
             buttons[i].className = '';
-            buttons[i].disabled = false;
         }
     }
 }
@@ -120,9 +130,10 @@ function clearKeyboard() {
 //Setting all hearts back to original state
 function replaceHearts() {
     let imgs = document.getElementsByTagName('img');
-    for (let i = 0; i < imgs.length; i++) {
+    for (i = 0; i < imgs.length; i++) {
         imgs[i].src = 'images/liveHeart.png';
-    }
+    };
+    hearts.forEach(heart => heart.className = 'tries');
 }
 
 
@@ -142,6 +153,7 @@ keys.addEventListener('click', (e) => {
         if (letterFound === 'null') {
             img.src = 'images/lostHeart.png';
             missed += 1;
+            console.log(missed);
         }
     }
     checkWin();

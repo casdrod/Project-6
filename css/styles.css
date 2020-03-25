@@ -8,7 +8,7 @@
   --color-primary: #1FD2DE;
   --color-accent: #628FB0;
   --color-win: #78CF82;
-  --color-lose: #D94545;
+  --color-lose: #DE2B1F;
   --color-start: #1D273D;
   --color-shadow: #706D6E;
   --color-light: #F9F9F8;
@@ -71,7 +71,6 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
-  overflow: hidden;
   background: #1D273D;
 }
 
@@ -230,4 +229,18 @@ button {
 
 .lose a {
   color: var(--color-lose);
+}
+
+@media (min-width: 768px) {
+  .letter {
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
 }
