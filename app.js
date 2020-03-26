@@ -15,48 +15,59 @@ const phrases = [
     'never give up',
     'pay it forward',
     'work hard stay humble',
-    'say yes to adventure',
     'hakuna matata',
     'this too shall pass',
-    'do the impossible',
     'enjoy the little things',
     'show up and dont give up',
-    // 'be fearlessly authentic'
+    'be fearlessly authentic',
+    'when nothing goes right go left'
 ];
 
 
 //******FUNCTIONS******//
+const mainContainer = document.querySelector('.main-container');
+const qwerty = document.querySelector('#qwerty');
 
-// Getting random phrase from Phrases array
-const getRandomPhraseAsArray = arr => {
+// Returns random phrase from array //
+function getRandomPhrase(arr) {
     const rand = arr[Math.floor(Math.random() * arr.length)];
-    const chars = rand.split("");
-    return chars;
+    appendPhrase(rand);
 }
 
-//constant holding the character array
-const charArray = getRandomPhraseAsArray(phrases);
-
-//adding phrase to display in proper display blocks
-const addPhraseToDisplay = arr => {
-    for (let i = 0; i < arr.length; i++) {
-        let ul = document.querySelector('#phrase ul');
-        let li = document.createElement('li');
-        li.textContent = arr[i];
-        li.style.fontWeight = '700';
-        if (li.textContent !== ' ') {
-            li.className = 'letter';
-        } else {
-            li.className = 'space';
-        }
-        ul.appendChild(li);
-    }
+// Create a new div then split phrase into words then append those words into new div then append div to body of document //
+function appendPhrase(phrase) {
+	const phraseEl = document.createElement('div');
+    phraseEl.classList.add('phrase');
+  
+	phrase.split(' ').forEach(word => {
+        appendWord(word, phraseEl); // Creates word and letter divs //
+    });
+    
+    mainContainer.insertBefore(phraseEl, qwerty);
 }
 
-//constant that holds when random phrase is selected then displayed
-const addToDisplay = addPhraseToDisplay(charArray);
+// Get word divs //
+function appendWord(word, container) {
+	const wordEl = document.createElement('div');
+    wordEl.classList.add('word');
+  
+    word.split('').forEach(letter => {
+  	appendLetter(letter, wordEl);
+  });
+  
+	container.appendChild(wordEl);
+}
 
-//check to see if the letter that was clicked is in the phrase
+// Get letter divs //
+function appendLetter(letter, container) {
+	const letterEl = document.createElement('div');
+    letterEl.classList.add('letter');
+    letterEl.textContent = letter;
+    container.appendChild(letterEl);
+}
+
+
+// Check to see if the letter that was clicked is in the phrase
 const checkLetter = guess => {
     const listItems = document.querySelectorAll('.letter');
     let match = 'null';
@@ -95,26 +106,26 @@ const checkWin = () => {
         overlay.appendChild(resetButton);
         overlay.className = 'win';
         title.textContent = "YOU WON!!";
+        title.style.color = "#1D273D";
         clearKeyboard()
-        clearPhrase();
     }
 
     function lose() {
         overlay.style.display = '';
         startGame.style.display = 'none';
         resetButton.className = 'btn__reset';
-        resetButton.textContent = 'PLAY AGAIN?';
+        resetButton.textContent = 'TRY AGAIN?';
         overlay.appendChild(resetButton);
         overlay.className = 'lose';
         title.textContent = "YOU LOSE!!";
+        title.style.color = "#1D273D";
         clearKeyboard()
-        clearPhrase();
     }
 }
 
 //Clears out phrase
 function clearPhrase() {
-    document.querySelector('#phraseUl').innerHTML = '';
+    document.querySelectorAll('.phrase').forEach(phrase => phrase.remove());
 }
 
 //Clears out keyboard
@@ -140,6 +151,7 @@ function replaceHearts() {
 //******EVENT LISTENERS******//
 
 startGame.addEventListener('click', () => {
+    getRandomPhrase(phrases);
     overlay.style.display = 'none';
 });
 
@@ -160,11 +172,10 @@ keys.addEventListener('click', (e) => {
 });
 
 resetButton.addEventListener('click', () => {
-    const newPhrase = getRandomPhraseAsArray(phrases);
     overlay.style.display = 'none';
+    clearPhrase();
     clearKeyboard();
     replaceHearts();
-    addPhraseToDisplay(newPhrase);
+    getRandomPhrase(phrases);
     missed = 0;
 });
-

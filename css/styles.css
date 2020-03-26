@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
 
 /**** VARIABLES ****/
-
 :root {
   --color-primary: #1FD2DE;
   --color-accent: #628FB0;
@@ -15,12 +14,13 @@
   --color-light-dark: #E0E0DF;
   --color-keys: #37474F;
   --font-size-large: 60px;
-  --font-size-medium: 24px;
+  --font-size-medium: 28px;
+  --font-size-small: 18px;
+  --heading-font-size-small: 32px;
   --transition: all .2s ease-in-out;
 }
 
 /**** KEYFRAMES ****/
-
 @keyframes matched {
   0% {
     transform: scale(0.8);
@@ -61,7 +61,6 @@
 }
 
 /* MAIN */
-
 * {
   box-sizing: border-box;
 }
@@ -71,33 +70,24 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
-  background: #1D273D;
+  background: var(--color-start);
+  overflow: hidden;
 }
 
-li, ol, ul {
+li, ol {
   padding: 0;
   display: inline-block;
 }
 
-h2 {
-  margin: 0;
-  text-transform: uppercase;
-  font-family: 'Open Sans', sans-serif;
-  font-size: var(--font-size-large);
-  margin: 0;
-}
-
 button {
-  margin: 6px;
+  margin: 5px;
   border: 1px solid transparent;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   color: var(--color-keys);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-small);
   background-color: var(--color-light);
   border-radius: 5px;
-  -webkit-transition: var(--transition);
-  -o-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -116,30 +106,42 @@ button {
 }
 
 /**** TITLE ****/
-
+.title,
 .header {
   color: var(--color-primary);
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--heading-font-size-small);
+  margin: 0;
 }
 
 /**** PHRASE ****/
-
 .letter {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-small);
   font-family: 'Calistoga', cursive;
-  font-weight: 100;
   text-transform: uppercase;
-  height: 65px;
-  width: 65px;
-  padding: 20px 1px 0 1px;
-  margin-right: 8px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  margin-right: 3px;
   margin-bottom: 15px;
   color: transparent;
   background: var(--color-light);
   border-radius: 10px;
 }
 
-.space {
-  width: 20px;
+.phrase {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.word {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0.25rem 1rem;
 }
 
 .show {
@@ -156,7 +158,6 @@ button {
 }
 
 /**** KEYBOARD ****/
-
 .keyrow {
   display: flex;
   flex-wrap: wrap;
@@ -166,19 +167,20 @@ button {
 .chosen {
   background: var(--color-accent);
   border-radius: 5px;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-small);
   color: var(--color-light);
   box-shadow: 3px 3px var(--color-shadow);
 }
 
+/* PLAY AGAIN/TRY AGAIN BUTTON */
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
   background: var(--color-light);
   border-radius: 5px;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-small);
   font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
   box-shadow: 4px 4px var(--color-shadow);
 }
@@ -187,6 +189,8 @@ button {
   background: var(--color-light-dark);
   box-shadow: 2px 2px var(--color-shadow);
 }
+
+
 
 /**** OVERLAY ****/
 
@@ -203,9 +207,7 @@ button {
   border-radius: 5px;
 }
 
-.title {
-  color: var(--color-light);
-}
+
 
 .start {
   background-color: var(--color-start);
@@ -231,16 +233,55 @@ button {
   color: var(--color-lose);
 }
 
+
 @media (min-width: 768px) {
+  h2 {
+    font-size: var(--font-size-large);
+  }
+
+  .phrase {
+    flex-flow: row wrap;
+  }
+
+  .word {
+    margin: 1rem;
+  }
+
   .letter {
-    width: 45px;
-    height: 45px;
-    padding: 5px;
+    height: 50px;
+    width: 50px;
+    margin-right: 8px;
+    font-size: var(--font-size-medium);
+  }
+
+  button {
+    height: 50px;
+    width: 50px;
+    font-size: var(--font-size-medium);
+    margin: 6px;
+  }
+
+  .chosen {
+    font-size: var(--font-size-medium);
+  }
+
+  .btn__reset {
+    font-size: var(--font-size-medium);
   }
 }
+
 
 @media (min-width: 1024px) {
   body {
     overflow: hidden;
+  }
+
+  .title {
+    font-size: var(--font-size-large);
+  }
+
+  .letter {
+    height: 70px;
+    width: 70px;
   }
 }
