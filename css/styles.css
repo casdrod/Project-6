@@ -71,7 +71,6 @@ body {
   display: flex;
   height: 100vh;
   background: var(--color-start);
-  overflow: hidden;
 }
 
 li, ol {
@@ -80,10 +79,10 @@ li, ol {
 }
 
 button {
-  margin: 5px;
+  margin: 4px;
   border: 1px solid transparent;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   color: var(--color-keys);
   font-size: var(--font-size-small);
   background-color: var(--color-light);
@@ -123,8 +122,8 @@ button {
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   margin-right: 3px;
   margin-bottom: 15px;
   color: transparent;
@@ -255,8 +254,8 @@ button {
   }
 
   button {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     font-size: var(--font-size-medium);
     margin: 6px;
   }
@@ -280,8 +279,17 @@ button {
     font-size: var(--font-size-large);
   }
 
+  .header {
+    font-size: var(--font-size-large)
+  }
+
   .letter {
     height: 70px;
     width: 70px;
+  }
+
+  button {
+    height: 50px;
+    width: 50px;
   }
 }
