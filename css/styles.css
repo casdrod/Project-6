@@ -80,10 +80,10 @@ li, ol {
 }
 
 button {
-  margin: 4px;
+  margin: 5px;
   border: 1px solid transparent;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   color: var(--color-keys);
   font-size: var(--font-size-small);
   background-color: var(--color-light);
@@ -96,13 +96,13 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  max-height: 90vh;
+  max-height: 900px;
   text-align: center;
 }
 
 .section {
   width: 100%;
-  /* padding: 10px; */
+  padding: 10px;
 }
 
 /**** TITLE ****/
@@ -114,7 +114,6 @@ button {
   font-size: var(--heading-font-size-small);
   margin: 0;
 }
-
 
 /**** PHRASE ****/
 .letter {
@@ -256,9 +255,9 @@ button {
   }
 
   button {
-    height: 45px;
-    width: 45px;
-    font-size: var(--font-size-medium);
+    height: 40px;
+    width: 40px;
+    font-size: var(--font-size-small);
     margin: 6px;
   }
 
@@ -273,12 +272,12 @@ button {
 
 
 @media (min-width: 1024px) {
-  .title {
-    font-size: var(--font-size-large);
+  body {
+    overflow: hidden;
   }
 
-  .header {
-    font-size: var(--font-size-large)
+  .title {
+    font-size: var(--font-size-large);
   }
 
   .letter {
@@ -289,5 +288,6 @@ button {
   button {
     height: 50px;
     width: 50px;
+    font-size: var(--font-size-medium)
   }
 }
