@@ -97,7 +97,7 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  max-height: 90vh;
+  max-height: 100vh;
   text-align: center;
 }
 
