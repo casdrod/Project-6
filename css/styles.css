@@ -71,7 +71,6 @@ body {
   display: flex;
   height: 100vh;
   background: var(--color-start);
-  overflow: hidden;
   margin: 0;
 }
 
