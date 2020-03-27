@@ -71,6 +71,8 @@ body {
   display: flex;
   height: 100vh;
   background: var(--color-start);
+  overflow: hidden;
+  margin: 0;
 }
 
 li, ol {
@@ -89,7 +91,6 @@ button {
   border-radius: 5px;
   transition: var(--transition);
   -webkit-appearance: button;
-  appearance: button;
 }
 
 .main-container {
@@ -273,10 +274,6 @@ button {
 
 
 @media (min-width: 1024px) {
-  body {
-    overflow: hidden;
-  }
-
   .title {
     font-size: var(--font-size-large);
   }
