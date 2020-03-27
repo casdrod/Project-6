@@ -89,7 +89,6 @@ button {
   background-color: var(--color-light);
   border-radius: 5px;
   transition: var(--transition);
-  -webkit-appearance: button;
 }
 
 .main-container {
