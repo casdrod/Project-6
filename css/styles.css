@@ -88,6 +88,8 @@ button {
   background-color: var(--color-light);
   border-radius: 5px;
   transition: var(--transition);
+  -webkit-appearance: button;
+  appearance: button;
 }
 
 .main-container {
@@ -95,7 +97,7 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  max-height: 90vh;
+  max-height: 80vh;
   text-align: center;
 }
 
