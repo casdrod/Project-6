@@ -276,7 +276,8 @@ button {
     overflow: hidden;
   }
 
-  .title {
+  .title,
+  .header {
     font-size: var(--font-size-large);
   }
 
