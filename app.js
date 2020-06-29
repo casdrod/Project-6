@@ -107,6 +107,7 @@ const checkWin = () => {
         overlay.className = 'win';
         title.textContent = "YOU WON!!";
         title.style.color = "#1D273D";
+        title.classList.add('scale-animation')
         clearKeyboard()
     }
 
@@ -119,6 +120,7 @@ const checkWin = () => {
         overlay.className = 'lose';
         title.textContent = "YOU LOSE!!";
         title.style.color = "#1D273D";
+        title.classList.add('scale-animation')
         clearKeyboard()
     }
 }
