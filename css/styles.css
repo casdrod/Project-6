@@ -13,6 +13,7 @@
   --color-light: #F9F9F8;
   --color-light-dark: #E0E0DF;
   --color-keys: #37474F;
+  --color-black: #000
   --font-size-large: 60px;
   --font-size-medium: 28px;
   --font-size-small: 18px;
@@ -72,6 +73,21 @@
   }
 }
 
+@-webkit-keyframes scale {
+  0%, 100% {
+    scale: 1;
+  }
+  25% {
+    scale: 1.5;
+  }
+  50% {
+    scale: 0.8;
+  }
+  75% {
+    scale: 1.2;
+  }
+}
+
 /* MAIN */
 * {
   box-sizing: border-box;
@@ -93,6 +109,7 @@ li, ol {
 
 button {
   margin: 5px;
+  padding:10px;
   border: 1px solid transparent;
   width: 35px;
   height: 35px;
@@ -160,13 +177,11 @@ button {
   color: var(--color-start);
   background-color: var(--color-primary);
   box-shadow: 3px 3px var(--color-shadow);
-  animation-duration: .5s;
-  animation-name: matched;
+  animation: matched 0.5s;
 }
 
 .win-pulse {
-  animation-duration: 1s;
-  animation-name: win-pulse;
+  animation: win-pulse 1s;
 }
 
 /**** KEYBOARD ****/
@@ -201,7 +216,6 @@ button {
 
 .btn__reset:hover {
   background-color: var(--color-primary);
-  color: var(--color-light);
   cursor: pointer;
 }
 
@@ -222,7 +236,11 @@ button {
 }
 
 .scale-animation {
-  animation: scale 1s ease;
+  -webkit-animation: scale 1s;
+}
+
+.scale-animation {
+  animation: scale 1s;
 }
 
 .start {
@@ -230,7 +248,7 @@ button {
 }
 
 .start a {
-  color: var(--color-primary);
+  color: var(--color-black);
 }
 
 .win {
