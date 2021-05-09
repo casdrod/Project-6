@@ -167,7 +167,6 @@ keys.addEventListener('click', (e) => {
         if (letterFound === 'null') {
             img.src = 'images/lostHeart.png';
             missed += 1;
-            console.log(missed);
         }
     }
     checkWin();

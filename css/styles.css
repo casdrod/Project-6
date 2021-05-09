@@ -72,6 +72,21 @@
   }
 }
 
+@-webkit-keyframes scale {
+  0%, 100% {
+    scale: 1;
+  }
+  25% {
+    scale: 1.5;
+  }
+  50% {
+    scale: 0.8;
+  }
+  75% {
+    scale: 1.2;
+  }
+}
+
 /* MAIN */
 * {
   box-sizing: border-box;
@@ -94,6 +109,7 @@ li, ol {
 button {
   margin: 5px;
   border: 1px solid transparent;
+  padding:10px;
   width: 35px;
   height: 35px;
   color: var(--color-keys);
@@ -160,13 +176,11 @@ button {
   color: var(--color-start);
   background-color: var(--color-primary);
   box-shadow: 3px 3px var(--color-shadow);
-  animation-duration: .5s;
-  animation-name: matched;
+  animation: matched 0.5s;
 }
 
 .win-pulse {
-  animation-duration: 1s;
-  animation-name: win-pulse;
+  animation: win-pulse 1s;
 }
 
 /**** KEYBOARD ****/
@@ -222,7 +236,11 @@ button {
 }
 
 .scale-animation {
-  animation: scale 1s ease;
+  -webkit-animation: scale 1s;
+}
+
+.scale-animation {
+  animation: scale 1s;
 }
 
 .start {
