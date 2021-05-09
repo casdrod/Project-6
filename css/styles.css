@@ -109,9 +109,7 @@ li, ol {
 
 button {
   margin: 5px;
-  padding:10px;
   border: 1px solid transparent;
-  padding:10px;
   width: 35px;
   height: 35px;
   color: var(--color-keys);
@@ -126,9 +124,12 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  max-height: 700px;
+  max-height: 600px;
   text-align: center;
 }
+
+#banner {padding:10px 10px 30px}
+.phrase {padding:20px 0}
 
 .section {
   width: 100%;
@@ -309,6 +310,10 @@ button {
 @media (min-width: 1024px) {
   body {
     overflow: hidden;
+  }
+
+  .main-container {
+    max-height:900px
   }
 
   .title,
