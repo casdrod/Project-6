@@ -124,7 +124,7 @@ button {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
-  max-height: 600px;
+  max-height: 700px;
   text-align: center;
   padding-bottom:70px
 }
@@ -134,7 +134,7 @@ button {
 
 .section {
   width: 100%;
-  padding: 0 10px;
+  padding: 10px 0;
 }
 
 /**** TITLE ****/
