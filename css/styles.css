@@ -204,7 +204,7 @@ button {
 
 /* PLAY AGAIN/TRY AGAIN BUTTON */
 .btn__reset {
-  padding: 8px;
+  padding: 8px 12px;
   margin: 50px auto;
   background: var(--color-light);
   border-radius: 5px;
@@ -304,6 +304,7 @@ button {
 
   .btn__reset {
     font-size: var(--font-size-medium);
+    transition: 0.3s all ease
   }
 }
 
