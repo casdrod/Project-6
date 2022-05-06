@@ -218,7 +218,7 @@ button {
 }
 
 .btn__reset:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-start);
   cursor: pointer;
 }
 
@@ -253,6 +253,8 @@ button {
 .start a {
   color: var(--color-black);
 }
+
+.start .btn__reset:hover {background-color: var(--color-primary);}
 
 .win {
   background-color: var(--color-win);
